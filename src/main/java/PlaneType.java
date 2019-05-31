@@ -2,9 +2,10 @@ public enum PlaneType {
 
     BOEING747(100, 80000);
 
-    private final int capacity; Long totalWeight;
+    private final int capacity;
+    private final int totalWeight;
 
-    PlaneType(int capacity, long totalWeight){
+    PlaneType(int capacity, int totalWeight){
         this.capacity = capacity;
         this.totalWeight = totalWeight;
     }
@@ -13,7 +14,7 @@ public enum PlaneType {
         return capacity;
     }
 
-    public long getTotalWeight() {
+    public int getTotalWeight() {
         return totalWeight;
     }
 }
