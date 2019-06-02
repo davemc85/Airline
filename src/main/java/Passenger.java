@@ -5,11 +5,13 @@ public class Passenger {
     private String name;
     private int numberOfBags;
     private ArrayList<Flight> flights;
+    private int seatNumber;
 
-   public Passenger(String name, int numberOfBags){
+   public Passenger(String name, int numberOfBags, int seatNumbe){
        this.name = name;
        this.numberOfBags = numberOfBags;
        this.flights = new ArrayList<Flight>();
+       this.seatNumber = 0;
    }
 
     public String getName() {
@@ -31,5 +33,12 @@ public class Passenger {
        return this.numberOfBags * 20;
     }
 
+    public void assignSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public int getSeatNumber(){
+       return this.seatNumber;
+    }
 
 }

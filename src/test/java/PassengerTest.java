@@ -14,8 +14,8 @@ public class PassengerTest {
     public void setUp(){
         plane = new Plane(PlaneType.CIRRUSSR22);
         flight = new Flight(plane, "GLA123", "NYC", "GLA", "16:45");
-        passenger1 = new Passenger("David", 1);
-        passenger2 = new Passenger("David", 3);
+        passenger1 = new Passenger("David", 1, 0);
+        passenger2 = new Passenger("Beth", 3, 0);
     }
 
     @Test
@@ -36,6 +36,11 @@ public class PassengerTest {
     @Test
     public void canGetBaggageWeightForPassenger(){
         assertEquals(60, passenger2.getBaggageWeightForPassenger());
+    }
+
+    @Test
+    public void canGetSeatNumber(){
+        assertEquals(0, passenger1.getSeatNumber());
     }
 
 

@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightManagerTest {
@@ -10,40 +12,46 @@ public class FlightManagerTest {
     private Plane plane;
     private Passenger passenger1;
     private Passenger passenger2;
+    private Passenger passenger3;
+    private Passenger passenger4;
 
 
     @Before
     public void SetUp() {
-        plane = new Plane(PlaneType.BOEING747);
+        plane = new Plane(PlaneType.CIRRUSSR22);
         flight = new Flight(plane, "GLA123", "NYC", "GLA", "16:45");
-        passenger1 = new Passenger("David", 1);
-        passenger2 = new Passenger("Beth", 3);
+        passenger1 = new Passenger("David", 1, 0);
+        passenger2 = new Passenger("Beth", 3, 0);
+        passenger3 = new Passenger("Gillian", 3, 0);
+        passenger4 = new Passenger("Stephen", 3, 0);
         flightManager = new FlightManager(flight);
     }
 
 
-        @Test
-        public void canGetAvailableBaggageWeight(){
-            assertEquals(40000, flightManager.getAvailableBaggageWeight());
-        }
-
-        @Test
-        public void canGetMaximumBaggageAllowedPerPerson(){
-            assertEquals(400, flightManager.maximumBaggageWeightPerPassenger());
-        }
-
-        @Test
-        public void remainingPassengerWeightTest(){
-            flight.addPassenger(passenger1);
-            flight.addPassenger(passenger2);
-            assertEquals(39920, flightManager.remainingBaggageWeight());
-        }
-
-        @Test
-        public void canGetBookedBaggage(){
-            flight.addPassenger(passenger1);
-            flight.addPassenger(passenger2);
-            assertEquals(80, flightManager.bookedBaggage());
-        }
-
+    @Test
+    public void canGetAvailableBaggageWeight(){
+        assertEquals(5000, flightManager.getAvailableBaggageWeight());
     }
+
+    @Test
+    public void canGetMaximumBaggageAllowedPerPerson(){
+        assertEquals(1250, flightManager.maximumBaggageWeightPerPassenger());
+    }
+
+    @Test
+    public void remainingPassengerWeightTest(){
+        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger2);
+        assertEquals(4920, flightManager.remainingBaggageWeight());
+    }
+
+    @Test
+    public void canGetBookedBaggage(){
+        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger2);
+        assertEquals(80, flightManager.bookedBaggage());
+    }
+
+
+
+}

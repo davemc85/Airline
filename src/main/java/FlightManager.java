@@ -16,7 +16,6 @@ public class FlightManager {
         return getAvailableBaggageWeight() / flight.getPlane().getCapacity();
     }
 
-
     public int bookedBaggage() {
         ArrayList<Passenger> passengers =  this.flight.getPassengers();
         int baggageCount = 0;
@@ -29,7 +28,6 @@ public class FlightManager {
     public int remainingBaggageWeight() {
         return getAvailableBaggageWeight() - bookedBaggage();
     }
-
 
 
 }

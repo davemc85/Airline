@@ -17,11 +17,11 @@ public class FlightTest {
     public void setUp(){
         plane = new Plane(PlaneType.CIRRUSSR22);
         flight = new Flight(plane, "GLA123", "NYC", "GLA", "16:45");
-        passenger1 = new Passenger("David", 1);
-        passenger2 = new Passenger("Beth", 2);
-        passenger3 = new Passenger("Gillian", 2);
-        passenger4 = new Passenger("Stephen", 1);
-        passenger5 = new Passenger("Ken", 2);
+        passenger1 = new Passenger("David", 1, 0);
+        passenger2 = new Passenger("Beth", 2, 0);
+        passenger3 = new Passenger("Gillian", 2, 0);
+        passenger4 = new Passenger("Stephen", 1, 0);
+        passenger5 = new Passenger("Ken", 2, 0);
     }
 
     @Test
@@ -73,8 +73,9 @@ public class FlightTest {
         flight.addPassenger(passenger3);
         flight.addPassenger(passenger4);
         flight.addPassenger(passenger5);
-       assertEquals(4, flight.passengerCount());
-       assertEquals(0, flight.availableSeats());
+        assertEquals(4, flight.passengerCount());
+        assertEquals(0, flight.availableSeats());
+
     }
 
 
