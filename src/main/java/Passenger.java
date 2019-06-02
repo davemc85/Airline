@@ -7,7 +7,7 @@ public class Passenger {
     private ArrayList<Flight> flights;
     private int seatNumber;
 
-   public Passenger(String name, int numberOfBags, int seatNumbe){
+   public Passenger(String name, int numberOfBags, int seatNumber){
        this.name = name;
        this.numberOfBags = numberOfBags;
        this.flights = new ArrayList<Flight>();

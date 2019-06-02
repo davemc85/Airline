@@ -52,6 +52,18 @@ public class FlightManagerTest {
         assertEquals(80, flightManager.bookedBaggage());
     }
 
+    @Test
+    public void canSortPassengersBySeatNumber(){
+        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger2);
+        flight.addPassenger(passenger3);
+        flight.addPassenger(passenger4);
+        ArrayList<Passenger> sortedPassengers = flightManager.sortPassengersBySeatNumber(flight);
+        assertEquals(1, sortedPassengers.get(0).getSeatNumber());
+        assertEquals(2, sortedPassengers.get(1).getSeatNumber());
+        assertEquals(3, sortedPassengers.get(2).getSeatNumber());
+        assertEquals(4, sortedPassengers.get(3).getSeatNumber());
+    }
 
 
 }

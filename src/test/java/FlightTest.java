@@ -78,6 +78,24 @@ public class FlightTest {
 
     }
 
+    @Test
+    public void canAddSeatNumber(){
+        assertEquals(0, passenger1.getSeatNumber());
+        flight.addPassenger(passenger1);
+        System.out.println("Showing that the seat number is not 0 : new seat is " + passenger1.getSeatNumber());
+    }
+
+    @Test
+    public void canAddUniqueSeatNumbers(){
+        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger2);
+        flight.addPassenger(passenger3);
+        flight.addPassenger(passenger4);
+        System.out.println("passenger 1: Seat number is " + passenger1.getSeatNumber());
+        System.out.println("passenger 2: Seat number is " + passenger2.getSeatNumber());
+        System.out.println("passenger 3: Seat number is " + passenger3.getSeatNumber());
+        System.out.println("passenger 4: Seat number i  " + passenger4.getSeatNumber());
+    }
 
 
 }

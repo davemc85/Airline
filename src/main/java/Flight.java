@@ -52,15 +52,24 @@ public class Flight {
         return passengers;
     }
 
-    public int assignUniqueSeatNumber() {
-        Random rand = new Random();
-        return rand.nextInt(this.plane.getCapacity()) + 1;
+    public void assignUniqueSeatNumber(Passenger passenger){
+        Random random = new Random();
+        int seatNumber = random.nextInt(this.plane.getCapacity()) + 1;
+        while (passenger.getSeatNumber() == 0){
+            for (int i = 0; i < this.passengerCount() -1; i++){
+                if (this.passengers.get(i).getSeatNumber() == seatNumber){
+                    seatNumber = random.nextInt(this.plane.getCapacity()) + 1;
+                    i = -1;
+                }
+            }
+            passenger.assignSeatNumber(seatNumber);
+        }
     }
 
     public void addPassenger(Passenger passenger) {
         if (this.plane.getCapacity() > passengerCount()){
             this.passengers.add(passenger);
-            passenger.assignSeatNumber(assignUniqueSeatNumber());
+            this.assignUniqueSeatNumber(passenger);
         }
     }
 }

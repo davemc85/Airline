@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class PassengerTest {
 
@@ -30,7 +31,7 @@ public class PassengerTest {
 
     @Test
     public void noFlightAtStart(){
-        assertEquals(false, passenger1.hasTicket());
+        assertFalse(passenger1.hasTicket());
     }
 
     @Test
