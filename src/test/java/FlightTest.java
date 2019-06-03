@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class FlightTest {
 
@@ -82,7 +82,7 @@ public class FlightTest {
     public void canAddSeatNumber(){
         assertEquals(0, passenger1.getSeatNumber());
         flight.addPassenger(passenger1);
-        System.out.println("Showing that the seat number is not 0 : new seat is " + passenger1.getSeatNumber());
+        assertNotEquals(0, passenger1.getSeatNumber());
     }
 
     @Test
@@ -91,10 +91,12 @@ public class FlightTest {
         flight.addPassenger(passenger2);
         flight.addPassenger(passenger3);
         flight.addPassenger(passenger4);
-        System.out.println("passenger 1: Seat number is " + passenger1.getSeatNumber());
-        System.out.println("passenger 2: Seat number is " + passenger2.getSeatNumber());
-        System.out.println("passenger 3: Seat number is " + passenger3.getSeatNumber());
-        System.out.println("passenger 4: Seat number i  " + passenger4.getSeatNumber());
+        assertNotEquals(passenger2.getSeatNumber(), passenger1.getSeatNumber());
+        assertNotEquals(passenger3.getSeatNumber(), passenger2.getSeatNumber());
+        assertNotEquals(passenger3.getSeatNumber(), passenger1.getSeatNumber());
+        assertNotEquals(passenger4.getSeatNumber(), passenger3.getSeatNumber());
+        assertNotEquals(passenger4.getSeatNumber(), passenger2.getSeatNumber());
+        assertNotEquals(passenger4.getSeatNumber(), passenger1.getSeatNumber());
     }
 
 
